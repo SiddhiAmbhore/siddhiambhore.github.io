@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siddhi Balu Ambhore · Mathematics, IIT Gandhinagar</title>
+<meta name="description" content="Siddhi Balu Ambhore, Research Associate (postdoctoral) in Mathematics at IIT Gandhinagar. Combinatorial commutative algebra: monomial ideals, binomial edge ideals, v-numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F3864;
+    --navy-soft:#2f4f86;
+    --ink:#1d2330;
+    --muted:#5b6475;
+    --rule:#d9dee6;
+    --bg:#fbfaf7;
+    --card:#ffffff;
+    --tint:#eef2f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:18px; line-height:1.65;
+  }
+  a{color:var(--navy); text-decoration-thickness:1px; text-underline-offset:3px}
+  a:hover{color:var(--navy-soft)}
+
+  /* ---------- top navigation ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(251,250,247,.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:980px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:Inter, system-ui, sans-serif; font-size:15px;
+  }
+  .brand{font-weight:600; color:var(--navy); text-decoration:none; letter-spacing:.01em}
+  .nav-links{display:flex; gap:22px; flex-wrap:wrap}
+  .nav-links a{color:var(--ink); text-decoration:none}
+  .nav-links a:hover{color:var(--navy)}
+  .nav-links a.cv{color:var(--navy); font-weight:600}
+  .menu-btn{display:none; background:none; border:1px solid var(--rule); border-radius:6px;
+            padding:6px 10px; font:inherit; cursor:pointer; color:var(--ink)}
+
+  /* ---------- layout ---------- */
+  main{max-width:980px; margin:0 auto; padding:0 24px 64px}
+  section{padding:52px 0 8px}
+  h2{
+    font-family:Inter, system-ui, sans-serif; font-size:14px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--navy);
+    margin:0 0 22px; padding-bottom:10px; border-bottom:1px solid var(--rule);
+  }
+  h3{font-size:19px; margin:0 0 4px; font-weight:600}
+  .muted{color:var(--muted)}
+  .small{font-size:15.5px}
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid; grid-template-columns:190px 1fr; gap:40px; align-items:start;
+    padding-top:56px;
+  }
+  .photo{
+    width:190px; height:190px; border-radius:50%; overflow:hidden;
+    background:var(--tint); display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--rule);
+  }
+  .photo img{width:100%; height:100%; object-fit:cover; display:block}
+  .photo .initials{font-size:58px; color:var(--navy); font-weight:600; letter-spacing:.02em}
+  .hero h1{font-size:40px; line-height:1.15; margin:4px 0 8px; color:var(--navy); font-weight:700}
+  .role{font-size:19px; margin:0 0 4px}
+  .affil{color:var(--muted); margin:0 0 18px}
+  .links{display:flex; flex-wrap:wrap; gap:10px; font-family:Inter, system-ui, sans-serif; font-size:14.5px}
+  .links a{
+    display:inline-flex; align-items:center; gap:6px; padding:7px 14px;
+    border:1px solid var(--rule); border-radius:999px; background:var(--card);
+    text-decoration:none; color:var(--ink);
+  }
+  .links a:hover{border-color:var(--navy); color:var(--navy)}
+  .links a.primary{background:var(--navy); color:#fff; border-color:var(--navy)}
+  .links a.primary:hover{background:var(--navy-soft)}
+
+  .lead{font-size:19px; margin-top:34px}
+  .keywords{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; font-family:Inter, system-ui, sans-serif; font-size:13.5px}
+  .keywords span{background:var(--tint); color:var(--navy); padding:4px 11px; border-radius:4px}
+
+  /* ---------- research cards ---------- */
+  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+  .card{background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:22px 22px 18px}
+  .card .tag{font-family:Inter, system-ui, sans-serif; font-size:12px; letter-spacing:.1em;
+             text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+  .card p{margin:8px 0 0; font-size:16.5px}
+  .card.next{background:var(--tint); border-color:#cfd8e6}
+
+  /* ---------- publications ---------- */
+  ol.pubs{list-style:none; padding:0; margin:0; counter-reset:pub}
+  ol.pubs li{
+    counter-increment:pub; position:relative; padding:0 0 22px 46px;
+  }
+  ol.pubs li::before{
+    content:"[" counter(pub) "]"; position:absolute; left:0; top:0;
+    color:var(--muted); font-family:Inter, system-ui, sans-serif; font-size:15px; padding-top:2px;
+  }
+  .pub-title{font-weight:600; font-size:18.5px}
+  .pub-meta{margin:2px 0 6px}
+  .pub-links{font-family:Inter, system-ui, sans-serif; font-size:13.5px; display:flex; gap:8px; flex-wrap:wrap}
+  .pub-links a{border:1px solid var(--rule); border-radius:4px; padding:2px 9px; text-decoration:none; background:var(--card)}
+  .pub-links a:hover{border-color:var(--navy)}
+
+  /* ---------- timeline lists ---------- */
+  .tl{list-style:none; padding:0; margin:0}
+  .tl li{display:grid; grid-template-columns:92px 1fr; gap:18px; padding:10px 0; border-bottom:1px dashed var(--rule)}
+  .tl li:last-child{border-bottom:none}
+  .tl .yr{font-family:Inter, system-ui, sans-serif; font-size:14px; color:var(--muted); padding-top:3px}
+  .tl em{font-style:italic}
+  .badge{display:inline-block; font-family:Inter, system-ui, sans-serif; font-size:12px; font-weight:600;
+         background:#fff4d6; color:#7a5a00; border:1px solid #f0dc9c; border-radius:4px; padding:1px 8px; margin-left:6px; vertical-align:2px}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:40px}
+  .sub{font-family:Inter, system-ui, sans-serif; font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+       color:var(--muted); margin:6px 0 8px}
+
+  .entry{margin-bottom:22px}
+  .entry .head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+  .entry .when{font-family:Inter, system-ui, sans-serif; font-size:14px; color:var(--muted); white-space:nowrap; padding-top:3px}
+  .entry p{margin:4px 0 0; font-size:16.5px}
+
+  .contact{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+  .contact div{background:var(--card); border:1px solid var(--rule); border-radius:10px; padding:20px 22px}
+
+  footer{border-top:1px solid var(--rule); margin-top:40px}
+  footer p{max-width:980px; margin:0 auto; padding:22px 24px; font-family:Inter, system-ui, sans-serif; font-size:13.5px; color:var(--muted)}
+
+  /* ---------- small screens ---------- */
+  @media (max-width:820px){
+    .cards{grid-template-columns:1fr}
+    .two, .contact{grid-template-columns:1fr; gap:8px}
+  }
+  @media (max-width:680px){
+    body{font-size:17px}
+    .hero{grid-template-columns:1fr; gap:22px; padding-top:36px}
+    .photo{width:140px; height:140px}
+    .photo .initials{font-size:44px}
+    .hero h1{font-size:32px}
+    .menu-btn{display:block}
+    .nav-links{display:none; position:absolute; left:0; right:0; top:100%;
+               background:var(--bg); border-bottom:1px solid var(--rule);
+               flex-direction:column; gap:0; padding:6px 24px 14px}
+    .nav-links a{padding:9px 0}
+    .nav-links.open{display:flex}
+    .tl li{grid-template-columns:1fr; gap:0}
+  }
+  @media print{ header.nav{display:none} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Siddhi Balu Ambhore</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
+    <nav class="nav-links" onclick="this.classList.remove('open')">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+      <a class="cv" href="Siddhi_Ambhore_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= INTRO ================= -->
+  <section class="hero">
+    <div class="photo">
+      <!-- To show your photo: upload a picture named photo.jpg next to this file. -->
+      <img src="photo.jpg" alt="Photo of Siddhi Balu Ambhore"
+           onerror="this.remove(); document.getElementById('initials').style.display='block';">
+      <span class="initials" id="initials" style="display:none">SA</span>
+    </div>
+    <div>
+      <h1>Siddhi Balu Ambhore</h1>
+      <p class="role">Research Associate I (postdoctoral), Department of Mathematics</p>
+      <p class="affil">Indian Institute of Technology Gandhinagar, India</p>
+      <div class="links">
+        <a class="primary" href="Siddhi_Ambhore_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a href="mailto:siddhi.ambhore@alumni.iitgn.ac.in">Email</a>
+        <!-- Add more profile links here when you have them, e.g.:
+        <a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a>
+        <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">ORCID</a>
+        <a href="https://arxiv.org/a/ambhore_s_1">arXiv</a>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <p class="lead">
+    I work in <strong>combinatorial commutative algebra</strong>, studying how a graph governs the
+    invariants of its ideals. I completed my Ph.D. at IIT Gandhinagar in 2026 under the supervision of
+    <strong>Prof. Indranath Sengupta</strong>, as a Prime Minister's Research Fellow, and I continue
+    to work with him as a postdoctoral Research Associate.
+  </p>
+  <div class="keywords">
+    <span>Monomial ideals</span><span>Binomial edge ideals</span><span>v-numbers</span>
+    <span>Associated primes</span><span>Castelnuovo–Mumford regularity</span>
+    <span>Macaulay2</span>
+  </div>
+
+  <!-- ================= RESEARCH ================= -->
+  <section id="research">
+    <h2>Research</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">Monomial ideals</div>
+        <h3>Associated primes as colon ideals</h3>
+        <p>I described each associated prime of a monomial ideal explicitly as a colon ideal, using the
+           irredundant irreducible decomposition, and implemented the method in <code>Macaulay2</code>.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Binomial edge ideals</div>
+        <h3>The <em>v</em>-number</h3>
+        <p>In joint work, I initiated the study of the <em>v</em>-number of binomial edge ideals, relating
+           it to completion sets, domination numbers and Castelnuovo–Mumford regularity, and classified
+           the graphs whose binomial edge ideals have <em>v</em>-number one.</p>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:18px">
+      I use <code>Macaulay2</code>, <code>Singular</code>, <code>GAP</code> and Python to test conjectures.
+      Ph.D. thesis: <em>Associated Primes of Monomial Ideals and the v-Number of Binomial Edge Ideals</em> (IIT Gandhinagar, 2026).
+    </p>
+  </section>
+
+  <!-- ================= PUBLICATIONS ================= -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs">
+      <li>
+        <div class="pub-title">The v-number of binomial edge ideals</div>
+        <div class="pub-meta">S. B. Ambhore, K. Saha and I. Sengupta.
+          <em>Acta Mathematica Vietnamica</em> <strong>49</strong> (2024), 611–628.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1007/s40306-024-00540-w" target="_blank" rel="noopener">DOI</a>
+        </div>
+      </li>
+      <li>
+        <div class="pub-title">Colon structure of associated primes of monomial ideals</div>
+        <div class="pub-meta">S. B. Ambhore and I. Sengupta.
+          <em>Algebra Colloquium</em> <strong>31</strong>(3) (2024), 441–450.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1142/S1005386724000336" target="_blank" rel="noopener">DOI</a>
+        </div>
+      </li>
+    </ol>
+    <p class="small muted">Author names are listed alphabetically, as is customary in mathematics.</p>
+  </section>
+
+  <!-- ================= TALKS ================= -->
+  <section id="talks">
+    <h2>Talks and Posters</h2>
+    <div class="sub">Invited and contributed talks</div>
+    <ul class="tl">
+      <li><span class="yr">2026</span><span><em>The v-number of binomial edge ideals.</em> RMS 2026, 41st Annual Conference of the Ramanujan Mathematical Society, Manipal Institute of Technology Bengaluru</span></li>
+      <li><span class="yr">2026</span><span><em>Binomial ideals: structure, associated primes, and primary decomposition.</em> Commutative Algebra Seminar, IIT Gandhinagar</span></li>
+      <li><span class="yr">2026</span><span><em>From graphs to algebra: how edges become ideals.</em> Graduate Math Meet, IIT Gandhinagar</span></li>
+      <li><span class="yr">2026</span><span><em>The v-number of binomial edge ideals.</em> GANIT Symposium on Connections among Algebraic Geometry, Commutative Algebra and Number Theory, IIT Gandhinagar</span></li>
+      <li><span class="yr">2025</span><span><em>The v-number of binomial edge ideals.</em> Symposium on Commutative Algebra and Algebraic Geometry, IIT Gandhinagar</span></li>
+      <li><span class="yr">2024</span><span><em>Colon structure of associated primes of monomial ideals.</em> Graduate Students' Seminar, IIT Gandhinagar</span></li>
+      <li><span class="yr">2023</span><span><em>The v-number of binomial edge ideals.</em> Conference on Rings and Factorizations 2023, University of Graz, Austria</span></li>
+    </ul>
+
+    <div class="sub" style="margin-top:28px">Posters</div>
+    <ul class="tl">
+      <li><span class="yr">2025</span><span><em>The v-number of binomial edge ideals.</em> International Conference on Commutative Algebra to the Memory of Jürgen Herzog, VIASM, Hanoi, Vietnam</span></li>
+      <li><span class="yr">2024</span><span><em>The v-number of binomial edge ideals.</em> International Conference on Local Rings and Singularities, IIT Bombay</span></li>
+      <li><span class="yr">2024</span><span><em>The v-number of binomial edge ideals.</em> International Conference on Women in Pure and Applied Mathematics, SRM University–AP <span class="badge">Best Poster Award</span></span></li>
+      <li><span class="yr">2022</span><span><em>Colon structure of associated primes of monomial ideals.</em> NBHM-sponsored Indian Women and Mathematics (IWM) Annual Conference, IISER Pune</span></li>
+      <li><span class="yr">2022</span><span><em>Colon structure of associated primes of monomial ideals.</em> SERB-funded Women in Science and Technology: Fostering Innovation, IIT Gandhinagar</span></li>
+    </ul>
+  </section>
+
+  <!-- ================= TEACHING ================= -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+
+    <div class="entry">
+      <div class="head"><h3>NPTEL Teaching Assistant · 12 course assignments</h3><span class="when">2024 – 2026</span></div>
+      <p>India's national online course platform; four appointments were PMRF teaching assistantships.
+         Courses: Linear Algebra and Basic Linear Algebra; Basic Real Analysis; Measure Theory; Calculus for
+         Economics, Commerce and Management; Introduction to Algebraic Geometry and Commutative Algebra;
+         Galois Theory; Introduction to Group Theory; Computational Commutative Algebra. With Prof. Dilip P. Patil,
+         Prof. Inder K. Rana, Prof. Venkatesh Rajendran, Prof. Manoj Kummini and Prof. Pranav Haridas.</p>
+    </div>
+
+    <div class="entry">
+      <div class="head"><h3>Graduate Teaching Fellow, IIT Gandhinagar · 4 courses</h3><span class="when">2023 – 2025</span></div>
+      <p>Real Analysis of Several Variables (MA 629); Calculus of Several Variables (MA 205); Numerical Methods (MA 203); Ordinary Differential Equations (MA 104).</p>
+    </div>
+
+    <div class="entry">
+      <div class="head"><h3>Visiting Lecturer</h3><span class="when">2022 – 2024</span></div>
+      <p>Mathematics I and II (B.E.), Vishwakarma Government Engineering College, Chandkheda (2022–24);
+         Mathematics (B.Sc. Semester V), Government Science College, Gandhinagar (2022–23).</p>
+    </div>
+
+    <div class="entry">
+      <div class="head"><h3>Teaching Assistant, IIT Gandhinagar · 9 course assignments</h3><span class="when">2021 – 2025</span></div>
+      <p>Basic Algebra (MA 501, twice); Algebra II (MA 628); Riemannian Geometry (MA 636); Computing with Python (ES 112);
+         Mathematics I, II and IV (MA 101, MA 102, MA 202); Mathematical Methods in Engineering (MA 601).</p>
+    </div>
+
+    <div class="entry">
+      <div class="head"><h3>Mentor</h3><span class="when">2018 – 2021</span></div>
+      <p>Mathematics Training and Talent Search (MTTS) Programme, 2021; Online Foundation Course in Mathematics (MTTS Trust), 2020;
+         Workshop on Techniques in Solving Problems in Mathematics, Ramniranjan Jhunjhunwala College, Mumbai, 2018.</p>
+    </div>
+
+    <div class="two" style="margin-top:8px">
+      <div>
+        <div class="sub">Courses I can teach · Undergraduate</div>
+        <p class="small" style="margin-top:0">Linear Algebra; Real Analysis; Abstract Algebra; Discrete Mathematics; Graph Theory; Calculus; Ordinary Differential Equations; Numerical Methods.</p>
+      </div>
+      <div>
+        <div class="sub">Courses I can teach · Graduate</div>
+        <p class="small" style="margin-top:0">Commutative Algebra; Combinatorial Commutative Algebra; Computational Commutative Algebra (with Macaulay2, Singular, GAP4); Galois Theory; Homological Algebra; Algebraic Combinatorics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AWARDS & EDUCATION ================= -->
+  <section id="awards">
+    <h2>Awards and Education</h2>
+    <div class="two">
+      <div>
+        <div class="sub">Fellowships and awards</div>
+        <ul class="tl">
+          <li><span class="yr">2022–26</span><span><strong>Prime Minister's Research Fellowship (PMRF)</strong>, Ministry of Education, Government of India</span></li>
+          <li><span class="yr">2024</span><span><strong>Best Poster Award</strong>, International Conference on Women in Pure and Applied Mathematics, SRM University–AP</span></li>
+          <li><span class="yr">2022</span><span><strong>Topper</strong>, NPTEL course <em>Computational Commutative Algebra</em></span></li>
+          <li><span class="yr">2020</span><span><strong>Sabarmati Bridge Fellowship</strong>, IIT Gandhinagar (ten graduating students each year)</span></li>
+          <li><span class="yr">2019</span><span><strong>CSIR–UGC NET</strong>, Lectureship, All India Rank 145</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub">Education</div>
+        <ul class="tl">
+          <li><span class="yr">2021–26</span><span><strong>Ph.D. in Mathematics</strong>, IIT Gandhinagar<br><span class="muted small">Advisor: Prof. Indranath Sengupta</span></span></li>
+          <li><span class="yr">2018–20</span><span><strong>M.Sc. in Mathematics</strong>, IIT Gandhinagar<br><span class="muted small">Thesis: <em>Monomial Ideals</em></span></span></li>
+          <li><span class="yr">2015–18</span><span><strong>B.Sc. in Mathematics</strong>, University of Mumbai<br><span class="muted small">Ramniranjan Jhunjhunwala College, Ghatkopar</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>
+        <div class="sub" style="margin-top:0">Email</div>
+        <a href="mailto:siddhi.ambhore@alumni.iitgn.ac.in">siddhi.ambhore@alumni.iitgn.ac.in</a>
+      </div>
+      <div>
+        <div class="sub" style="margin-top:0">Office</div>
+        Academic Block 6/345, Department of Mathematics<br>
+        IIT Gandhinagar, Palaj, Gandhinagar, Gujarat 382055, India
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Siddhi Balu Ambhore · Last updated November 2026</p>
+</footer>
+
+</body>
+</html>
